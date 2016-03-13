@@ -10,5 +10,5 @@ sed 's/mp3/mp3\n/g'
 # always work...hmmm
 cat 001 | grep -o 'http.\{0,70\}mp3' | sed 's/\\\\\\//g' > 003 
 
-# replace some symbols in url
+# replace comma symbol in url
 sed 's/,/%2c/g'
