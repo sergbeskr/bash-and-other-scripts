@@ -15,5 +15,22 @@ def main():
         logger.info("str")
     if ((type(test_3) is str) or (type(test_3) is unicode)) and "plist_path" in test_3:
         logger.info("working!")
+        
+# -----------------------------------------------------------
+
+    #next test soon
+
+# -----------------------------------------------------------
+
+    #next test soon
+
+# -----------------------------------------------------------
+    
+    test1 = {'test1': ['test2', 'test3']}
+    test2 = {'test1': ['test3', 'test2']}
+    if test1 == test2:
+        logger.info("==")
+    else:
+        logger.info("!")
 
 main()
