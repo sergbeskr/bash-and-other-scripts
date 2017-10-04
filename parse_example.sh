@@ -16,3 +16,4 @@ sed 's/,/%2c/g'
 # replace password
 sudo sed -i.bak 's/sergbeskr:.*:.*:.*:.*:.*:.*:.*:/sergbeskr:\$6\$XXX\$XXXX
 XXXXXXXXX\/XXXXXXXXXXXXXX\.:11004:0:99999:7:::/g' /etc/shadow
+
