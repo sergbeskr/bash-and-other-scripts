@@ -36,7 +36,7 @@ def requestToDB(item_id):
         return
 
 #    some_attr = re.search(r'rom-tooltip.*\r\n<tbody>.*<td.*>(.*)</.*td></tbody>.*</table>', response).group(1)
-    some_attr = re.search(r'<t.*>(.*)</td>', response).group(1)
+#    some_attr = re.search(r'<t.*>(.*)</td>', response).group(1)
     if more_info == True:
         all_td_attrs = ""
         some_td_attrs = re.findall(r'<td.*>(.*)</td>', response)
