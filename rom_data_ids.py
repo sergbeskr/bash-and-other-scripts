@@ -43,7 +43,7 @@ def requestToDB(item_id):
         if td_attr != "":
             all_td_attrs = all_td_attrs + td_attr + "\n"
 
-    logger.info("_____%s_____%s_____\n%s_____", item_id, item_name, all_td_attrs)
-    #print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
+    #logger.info("_____%s_____%s_____\n%s_____", item_id, item_name, all_td_attrs)
+    print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
 
 main()
