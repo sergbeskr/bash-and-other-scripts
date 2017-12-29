@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import os, sys, logging, re, urllib2
+import os, sys, logging, re, urllib2, time
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(":")
@@ -10,9 +10,10 @@ logger = logging.getLogger(":")
 # python rom_data_ids.py > test_rom.txt
 #######################################
 
-rom_data_ids = [[103565, 103566], [210042, 210043], [300001, 300002]]
+rom_data_ids = [[101000, 110000]]#, [210042, 210043], [300001, 300002]]
 
 more_info = True
+ids_before_delay = 10
 
 def main():
 
@@ -20,9 +21,14 @@ def main():
     #logger.info("Done!")
 
 def grabAllRomIds():
+    times_num = 0
     for n in rom_data_ids:
         for item_id in range(n[0], n[1] + 1):
             requestToDB(str(item_id))
+            times_num = times_num + 1
+            if times_num == ids_before_delay:
+                time.sleep(1)
+                times_num = 0
 
 def requestToDB(item_id):
     response_full = urllib2.urlopen("http://www.rom-welten.de/database/view.php?id=" + item_id)
@@ -45,7 +51,7 @@ def requestToDB(item_id):
                 all_td_attrs = all_td_attrs + td_attr + "\n"
         
         logger.info("_____%s_____%s_____\n%s_____", item_id, item_name, all_td_attrs)
-        #print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
+        print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
     else:
         logger.info("%s %s", item_id, item_name)
         #print(item_id + " " + item_name)
