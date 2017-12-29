@@ -14,11 +14,15 @@ rom_data_ids = [[103565, 103566], [210042, 210043], [300001, 300002]]
 
 def main():
 
+    grabAllRomIds()
+    
+#    logger.info("Done!")
+
+def grabAllRomIds():
     for n in rom_data_ids:
         for item_id in range(n[0], n[1] + 1):
             requestToDB(str(item_id))
-
-#    logger.info("Done!")
+    #    logger.info("Done!")
 
 def requestToDB(item_id):
     response_full = urllib2.urlopen("http://www.rom-welten.de/database/view.php?id=" + item_id)
@@ -40,6 +44,6 @@ def requestToDB(item_id):
             all_td_attrs = all_td_attrs + td_attr + "\n"
 
     logger.info("_____%s_____%s_____\n%s_____", item_id, item_name, all_td_attrs)
-    print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
+    #print("_____" + item_id + "_____" + item_name + "\n" + all_td_attrs)
 
 main()
